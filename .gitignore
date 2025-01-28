@@ -10,13 +10,8 @@
 
 # production
 /build
-/local
 
 # misc
-.env
-.env.dev
-.env.qa
-.env.uat
 .DS_Store
 .env.local
 .env.development.local
@@ -26,7 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-.docz
-.eslintcache
-.vscode

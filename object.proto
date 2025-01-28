@@ -1,0 +1,2112 @@
+syntax = "proto3";
+
+package object;
+
+option go_package = "gitlab.com/aveosoft/object-service;proto";
+
+service ObjectService {
+  rpc CreateWeapon (WeaponRequest) returns (WeaponResponse) {}
+  rpc GetWeaponById (IDRequest) returns (WeaponResponse) {}
+  rpc UpdateWeaponById (UpdateWeaponByIdRequest) returns (WeaponResponse) {}
+  rpc DeleteWeaponById (DeleteObjectRequest) returns (WeaponResponse){}
+
+  rpc CreateOperation (OperationRequest) returns (OperationResponse) {}
+  rpc GetOperationById (GetOperationByIdRequest) returns (OperationResponse) {}
+  rpc GetOperations (EmptyRequest) returns (OperationsResponse) {}
+  rpc UpdateOperationById (UpdateOperationByIdRequest) returns (OperationResponse) {}
+  rpc DeleteOperationById (DeleteObjectRequest) returns (OperationResponse){}
+
+  rpc CreateCompany (CompanyRequest) returns (CompanyResponse) {};
+  rpc GetCompanyById (IDRequest) returns (CompanyResponse) {};
+  rpc UpdateCompanyById (UpdateCompanyByIdRequest) returns (CompanyResponse) {}
+  rpc DeleteCompanyById (IDRequest) returns (CompanyResponse) {}
+
+  rpc CreateLocation(LocationRequest) returns (LocationResponse) {}
+  rpc GetLocationById(IDRequest) returns (LocationResponse) {}
+  rpc UpdateLocationById(UpdateLocationByIdRequest) returns (LocationResponse) {}
+  rpc DeleteLocationById(DeleteObjectRequest) returns (LocationResponse) {}
+
+  rpc CreateEntity(EntityRequest) returns(EntityResponse) {}
+  rpc GetEntityById(IDRequest) returns (EntityResponse) {}
+  rpc UpdateEntityById(UpdateEntityByIdRequest) returns (EntityResponse) {}
+  rpc DeleteEntityById(DeleteObjectRequest) returns (EntityResponse) {}
+
+  rpc CreateEvent(EventRequest) returns(EventResponse) {}
+  rpc GetEventById(IDRequest) returns (EventResponse) {}
+  rpc UpdateEventById(UpdateEventByIdRequest) returns (EventResponse) {}
+  rpc DeleteEventById(DeleteObjectRequest) returns (EventResponse) {}
+
+  rpc CreateDevice(DeviceRequest) returns(DeviceResponse) {}
+  rpc GetDeviceById(IDRequest) returns (DeviceResponse) {}
+  rpc UpdateDeviceById(UpdateDeviceByIdRequest) returns (DeviceResponse) {}
+  rpc DeleteDeviceById(DeleteObjectRequest) returns (DeviceResponse) {}
+  rpc ListDevicesByMSISDN(ListByMSISDNRequest) returns (ListCsvRecordResponse) {}
+
+  rpc CreateSoftware (SoftwareRequest) returns (SoftwareResponse) {}
+  rpc GetSoftwareById (GetSoftwareByIdRequest) returns (SoftwareResponse) {}
+  rpc UpdateSoftwareById (UpdateSoftwareByIdRequest) returns (SoftwareResponse) {}
+  rpc DeleteSoftwareById (DeleteObjectRequest) returns (SoftwareResponse){}
+
+  rpc CreateFirearm(FirearmRequest) returns(FirearmResponse) {}
+  rpc GetFirearmById(GetFirearmByIdRequest) returns (FirearmResponse) {}
+  rpc UpdateFirearmById(UpdateFirearmByIdRequest) returns (FirearmResponse) {}
+  rpc DeleteFirearmById(DeleteObjectRequest) returns (FirearmResponse) {}
+
+  rpc CreatePerson(CreatePersonRequest) returns(PersonResponse) {}
+  rpc GetPersonById(GetPersonByIdRequest) returns (PersonResponse) {}
+  rpc UpdatePersonById(UpdatePersonRequestById) returns (PersonResponse) {}
+  rpc DeletePersonById(DeleteObjectRequest) returns (PersonResponse) {}
+
+  //   rpc GetDropdown(GetDropdownRequest) returns (GetDropdownResponse) {}
+  rpc GetSubTypes(GetSubTypesRequest) returns (GetSubTypesResponse) {}
+
+  rpc GetDeviceDropdownsBySubType(GetDeviceDropdownsBySubTypeRequest) returns (GetDeviceDropdownsBySubTypeResponse) {}
+
+  rpc Search(SearchRequest) returns (SearchResponse) {}
+
+  rpc CreateItem (ItemRequest) returns (ItemResponse) {}
+  rpc GetItemById (GetItemByIdRequest) returns (ItemResponse) {}
+  rpc UpdateItemById (UpdateItemByIdRequest) returns (ItemResponse) {}
+  rpc DeleteItemById (DeleteObjectRequest) returns (ItemResponse){}
+
+  rpc CreateVehicle (VehicleRequest) returns (VehicleResponse) {}
+  rpc GetVehicleById (IDRequest) returns (VehicleResponse) {}
+  rpc UpdateVehicleById (UpdateVehicleByIdRequest) returns (VehicleResponse) {}
+  rpc DeleteVehicleById (DeleteObjectRequest) returns (VehicleResponse){}
+
+  rpc CreateAccount (AccountRequest) returns (AccountResponse) {}
+  rpc GetAccountById (IDRequest) returns (AccountResponse) {}
+  rpc UpdateAccountById (UpdateAccountByIdRequest) returns (AccountResponse) {}
+  rpc DeleteAccountById (DeleteObjectRequest) returns (AccountResponse){}
+
+  rpc GetPlaneWidget(EmptyRequest) returns (GetPlaneWidgetResponse){}
+
+  rpc GetItemDropDown(EmptyRequest) returns (ItemDropDownResponse) {}
+  rpc GetWeaponDropDown(EmptyRequest) returns (WeaponDropDownResponse) {}
+  rpc GetFirearmDropDown(EmptyRequest) returns (FirearmDropDownResponse) {}
+  rpc GetPersonDropDown(EmptyRequest) returns (PersonDropDownResponse) {}
+  rpc GetEntityDropDown(EmptyRequest) returns (EntityDropDownResponse) {}
+  rpc GetVehicleDropDown(EmptyRequest) returns (VehicleDropDownResponse) {}
+  rpc GetLocationDropDown(EmptyRequest) returns (LocationDropDownResponse) {}
+  rpc GetEventDropDown(EmptyRequest) returns (EventDropDownResponse) {}
+  rpc GetSoftwareDropDown(EmptyRequest) returns (SoftwareDropDownResponse) {}
+  rpc GetAccountDropDown(EmptyRequest) returns (AccountDropDownResponse) {}
+  rpc GetOperationDropDown(EmptyRequest) returns (OperationDropDownResponse) {}
+  rpc GetDeviceDropDown(EmptyRequest) returns (DeviceDropDownResponse) {}
+
+  rpc AppVersion (EmptyRequest) returns (VersionResponse) {}
+
+  rpc CreateNetwork (NetworkRequest) returns (NetworkResponse) {}
+  rpc GetNetworkById (IDRequest) returns (NetworkResponse) {}
+  rpc GetNetworkByObjectId (IDRequest) returns (NetworkResponse) {}
+  rpc CreateRelationBetweenNodes (UpdateNetworkRequest) returns (NetworkResponse) {}
+  rpc CollapsNodes (NodeCollapsRequest) returns (NodeCollapsResponse) {}
+  rpc UpdateNodePosition (UpdateNodePositionRequest) returns (NetworkResponse){}
+  rpc DeleteNetworkById (IDRequest) returns (NetworkResponse){}
+  rpc DeleteEdgeById (IDRequest) returns (NetworkResponse){}
+  rpc FetchAllNetwork(EmptyRequest) returns (AllNetworkResponse) {}
+  rpc GetEdgesData(ReturnRelationEdgeDropDownRequest) returns (ReturnRelationEdgeDropDownsResponse) {}
+  rpc UpdateEdgesRelation (UpdateRelationEdgesRequset) returns (ReturnRelationEdgeDropDownsResponse) {}
+
+  rpc GetAllSearch(SearchRequest) returns (AllSearchResponse) {}
+  rpc GOSearch(SearchRequest) returns (AllSearchResponse) {}
+
+  rpc FetchAllAccount(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllDevice(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllEntity(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllEvent(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllFirearm(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllItem(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllLocation(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllOperation(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllPersons(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllSoftware(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllVehicle(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+  rpc FetchAllWeapon(PlaneWidgetObjectListRequest) returns (ObjectListResponse) {}
+
+  rpc UploadCSVFile(UploadCSVRequest) returns (UploadCSVResponse) {}
+  rpc CDRRequiredDetails(EmptyRequest) returns (CDRRequiredDetailsesponse) {}
+
+  rpc AddToMap(AddToMapRequest) returns (MapResponse) {}
+  rpc MapObjectsListing(EmptyRequest) returns (MapObjectsListingResponse) {}
+  rpc FetchAllMap(ApplyFiltersOnMapRequest) returns (MapResponse) {}
+  rpc GetObjectJourneyMapData(ApplyFiltersOnMapRequest) returns (ObjectMapJourneyResponse) {}
+  rpc NotebookByUser(NotebookRequest) returns (NotebookResponse) {}
+  rpc GetNotebookByUser(EmptyRequest) returns (NotebookResponse) {}
+  rpc FetchAllTodoTask(AllToDoTaskRequest) returns (AllToDoTaskResponse) {}
+  rpc CreateTodoTask(ToDoTaskRequest) returns (ToDoTaskResponse) {}
+  rpc UpdateTodoById(UpdateTodoByIdRequest) returns (ToDoTaskResponse) {}
+  rpc DeleteTodoTaskById(DeleteTodoByIdRequest) returns (ToDoTaskResponse) {}
+}
+
+message EmptyRequest{}
+message WeaponRequest{
+  string type = 1;
+  string object = 2;
+  string manufacturer = 3;
+  string make = 4;
+  string model = 5;
+  int32 year = 6;
+  string serial_number = 7;
+  string last_date_sale = 8;
+  float sale_price = 9;
+  float value = 10;
+  string description = 11;
+  string comment = 12;
+  string source = 13;
+}
+
+message Weapon {
+  string id = 1;
+  string type = 2;
+  string object = 3;
+  string manufacturer = 4;
+  string make = 5;
+  string model = 6;
+  int32 year = 7;
+  string serial_number = 8;
+  string last_date_sale = 9;
+  float sale_price = 10;
+  float value = 11;
+  string description = 12;
+  string comment = 13;
+  string source = 14;
+  string created_at = 15;
+  string updated_at = 16;
+}
+
+// Common request message for all getById method
+message IDRequest{
+  string id = 1;
+}
+
+message DeleteObjectRequest{
+  string id = 1;
+  string comment = 2;
+}
+
+message ListByMSISDNRequest {
+  string value = 1;
+  string retrive_type = 2;
+  string search = 3;
+  string datetime_filter = 4;
+  string imported_on_filter = 5;
+  string first_seen = 6;
+  string last_seen = 7;
+}
+
+message UpdateWeaponByIdRequest{
+  string id = 1;
+  WeaponRequest weapon = 2;
+}
+
+message WeaponResponse {
+  string msg = 1;
+  Weapon data = 2;
+  bool success = 3;
+}
+
+message CompanyResponse {
+  string msg = 1;
+  Company data = 2;
+  bool success = 3;
+}
+
+message SoftwareResponse {
+  string msg = 1;
+  Software data = 2;
+  bool success = 3;
+}
+
+message ItemResponse {
+  string msg = 1;
+  Item data = 2;
+  bool success = 3;
+}
+
+message FirearmResponse {
+  string msg = 1;
+  Firearm data = 2;
+  bool success = 3;
+}
+
+message BooleanResponse{
+  bool ok = 1;
+}
+
+message LocationRequest{
+  string type = 1;
+  string latitude = 2;
+  string prop_name = 3;
+  string unit_number = 4;
+  string street_number = 5;
+  string street_name = 6;
+  string suburd = 7;
+  string city = 8;
+  string country = 9;
+  string state = 10;
+  string zipcode = 11;
+  bool government_facility = 12;
+  string use_type = 13;
+  string land_area = 14;
+  string structure_area = 15;
+  bool garage = 16;
+  string year_built = 17;
+  string year_renovated = 18;
+  string plan_number = 19;
+  string plot_number = 20;
+  string plat_number = 21;
+  string zoning = 22;
+  string date_last_sale = 23;
+  float sale_price = 24;
+  float lien = 25;
+  float market_value = 26;
+  float encumbrance = 27;
+  float mortgage = 28;
+  string mortgage_company = 29;
+  float equity = 30;
+  string description = 31;
+  string comment = 32;
+  string source = 33;
+  string county = 34;
+  string longitude = 35;
+  string apartment_no = 36;
+}
+
+message Location {
+  string type = 1;
+  string latitude = 2;
+  string prop_name = 3;
+  string unit_number = 4;
+  string street_number = 5;
+  string street_name = 6;
+  string suburd = 7;
+  string city = 8;
+  string country = 9;
+  string state = 10;
+  string zipcode = 11;
+  bool government_facility = 12;
+  string use_type = 13;
+  string land_area = 14;
+  string structure_area = 15;
+  bool garage = 16;
+  string year_built = 17;
+  string year_renovated = 18;
+  string plan_number = 19;
+  string plot_number = 20;
+  string plat_number = 21;
+  string zoning = 22;
+  string date_last_sale = 23;
+  float sale_price = 24;
+  float lien = 25;
+  float market_value = 26;
+  float encumbrance = 27;
+  float mortgage = 28;
+  string mortgage_company = 29;
+  float equity = 30;
+  string description = 31;
+  string comment = 32;
+  string source = 33;
+  bool is_deleted = 34;
+  string deleted_at = 35;
+  string created_at = 36;
+  string updated_at = 37;
+  string id = 38;
+  string county = 39;
+  string longitude = 40;
+  string apartment_no = 41;
+}
+
+message LocationResponse {
+  bool success = 1;
+  Location data = 2;
+  string msg = 3;
+}
+message UpdateLocationByIdRequest{
+  string id = 1;
+  LocationRequest location = 2;
+}
+
+// operation
+
+message OperationRequest{
+  string type = 1;
+  string unit = 2;
+  string squad = 3;
+  string oic = 4;
+  string op_name = 5;
+  string tag_line = 6;
+  string date_start = 7;
+  string date_end = 8;
+  string status = 9;
+  int32 no_fatalities = 10;
+  int32 no_injured = 11;
+  int32 no_arrests = 12;
+  int32 no_charges = 13;
+  float cash_value_found = 14;
+  string drugs_found = 15;
+  string documents_found = 16;
+  string weapons_found = 17;
+  float drug_value = 18;
+  string other_items = 19;
+  string narrative = 20;
+  string comment = 21;
+  string source = 22;
+  string category = 23;
+}
+
+message Operation {
+  string id = 1;
+  string type = 2;
+  string unit = 3;
+  string squad = 4;
+  string oic = 5;
+  string op_name = 6;
+  string tag_line = 7;
+  string date_start = 8;
+  string date_end = 9;
+  string status = 10;
+  int32 no_fatalities = 11;
+  int32 no_injured = 12;
+  int32 no_arrests = 13;
+  int32 no_charges = 14;
+  float cash_value_found = 15;
+  string drugs_found = 16;
+  string documents_found = 17;
+  string weapons_found = 18;
+  float drug_value = 19;
+  string other_items = 20;
+  string narrative = 21;
+  string comment = 22;
+  string source = 23;
+  string created_at = 24;
+  string updated_at = 25;
+  string deleted_at = 26;
+  bool is_deleted = 27;
+  string category = 28;
+}
+
+message GetOperationByIdRequest{
+  string id = 1;
+}
+
+message UpdateOperationByIdRequest{
+  string id = 1;
+  OperationRequest operation = 2;
+}
+
+message DeleteOperationRequest{
+  string id = 1;
+}
+
+message OperationResponse{
+  bool success = 1;
+  Operation data = 2;
+  string msg = 3;
+}
+message OperationsResponse{
+  bool success = 1;
+  repeated NetworkOperation data = 2;
+  string msg = 3;
+}
+
+message NetworkOperation {
+  string id = 1;
+  string type = 2;
+  string op_name = 3;
+  repeated NetworkPerson person = 4;
+  string unique_identifier = 5;
+  string category = 6;
+}
+
+
+message NetworkPerson {
+  string id = 1;
+  string name = 2;
+  string relation = 3;
+  string node_id = 4;
+}
+
+
+// software proto
+message Software {
+  string id = 1;
+  string category = 2;
+  string subCategory = 3;
+
+  string operationArchitecture = 4;
+  string operationEdition = 5;
+  string operationBuildNumber = 6;
+  string operationVersion = 7;
+  string operationKernel = 8;
+
+  string applicationName = 9;
+  string applicationDeveloper = 10;
+  string applicationOperatingSystem = 11;
+  string applicationVersion = 12;
+
+  string malwareName = 13;
+  string malwareExploitedSoftware = 14;
+  string malwareTargetedOS = 15;
+  string malwareVersion = 16;
+  string malwareVulnerability = 17;
+
+  string Description = 18;
+  string Comment = 19;
+  string Source = 20;
+
+  string created_at = 21;
+  string updated_at = 22;
+  string deleted_at = 23;
+  bool is_deleted = 24;
+}
+
+message SoftwareRequest{
+  string category = 1;
+  string subCategory = 2;
+
+  string operationArchitecture = 3;
+  string operationEdition = 4;
+  string operationBuildNumber = 5;
+  string operationVersion = 6;
+  string operationKernel = 7;
+
+
+  string applicationName = 8;
+  string applicationDeveloper = 9;
+  string applicationOperatingSystem = 10;
+  string applicationVersion = 11;
+
+
+  string malwareName = 12;
+  string malwareExploitedSoftware = 13;
+  string malwareTargetedOS = 14;
+  string malwareVersion = 15;
+  string malwareVulnerability = 16;
+
+  string Description = 17;
+  string Comment = 18;
+  string Source = 29;
+
+}
+
+message GetSoftwareByIdRequest{
+  string id = 1;
+}
+
+message UpdateSoftwareByIdRequest{
+  string id = 1;
+  SoftwareRequest software = 2;
+}
+
+message DeleteSoftwareRequest{
+  string id = 1;
+}
+
+//Firearm
+message FirearmRequest{
+  string type = 1;
+  string used_in = 2;
+  string intended_use = 3;
+  string calibre = 4;
+  string manufacturer = 5;
+  string make = 6;
+  string model = 7;
+  int32 year = 8;
+  string serial_number = 9;
+  string color = 10;
+  string date_of_last_sale = 11;
+  float sale_price = 12;
+  float value = 13;
+  string description = 14;
+  string comment = 15;
+  string source = 16;
+  string loadings = 17;
+}
+
+message Firearm {
+  string id = 1;
+  string type = 2;
+  string used_in = 3;
+  string intended_use = 4;
+  string calibre = 5;
+  string loadings = 6;
+  string manufacturer = 7;
+  string make = 8;
+  string model = 9;
+  int32 year = 10;
+  string serial_number = 11;
+  string color = 12;
+  string date_of_last_sale = 13;
+  float sale_price = 14;
+  float value = 15;
+  string description = 16;
+  string comment = 17;
+  string source = 18;
+  string created_at = 19;
+  string updated_at = 20;
+  string deleted_at = 21;
+  bool is_deleted = 22;
+}
+
+message GetFirearmByIdRequest{
+  string id = 1;
+}
+
+message UpdateFirearmByIdRequest{
+  string id = 1;
+  FirearmRequest firearm = 2;
+}
+
+message DeleteFirearmRequest{
+  string id = 1;
+}
+
+
+// item proto
+
+message ItemRequest{
+  string type = 1;
+  string object = 2;
+  string manufacturer = 3;
+  string make = 4;
+  string model = 5;
+  int32 year = 6;
+  string serial_number = 7;
+  string last_date_sale = 8;
+  float sale_price = 9;
+  float value = 10;
+  string description = 11;
+  string comment = 12;
+  string source = 13;
+}
+
+message Item {
+  string id = 1;
+  string type = 2;
+  string object = 3;
+  string manufacturer = 4;
+  string make = 5;
+  string model = 6;
+  int32 year = 7;
+  string serial_number = 8;
+  string last_date_sale = 9;
+  float sale_price = 10;
+  float value = 11;
+  string description = 12;
+  string comment = 13;
+  string source = 14;
+  string created_at = 15;
+  string updated_at = 16;
+  string deleted_at = 17;
+  bool is_deleted = 18;
+}
+
+message GetItemByIdRequest{
+  string id = 1;
+}
+
+message UpdateItemByIdRequest{
+  string id = 1;
+  ItemRequest item = 2;
+}
+
+message DeleteItemRequest{
+  string id = 1;
+}
+
+
+message UpdateCompanyByIdRequest{
+  string id = 1;
+  CompanyRequest company = 2;
+}
+
+message CompanyRequest{
+  string structure = 1;
+  string name = 2;
+  string dba = 3;
+  string url = 4;
+  string country = 5;
+  string state = 6;
+  bool listed = 7;
+  string registration_number = 8;
+  string status = 9;
+  string date_registered = 10;
+  string date_renewed = 11;
+  string date_inactive = 12;
+  string date_closed = 13;
+  string primary_purpose = 14;
+  string industry = 15;
+  string naics = 16;
+  string duns = 17;
+  string cage = 18;
+  bool political_donor = 19;
+  string no_of_employees = 20;
+  string description = 21;
+  string comment = 22;
+  string source = 23;
+
+}
+
+message Company{
+  string structure = 1;
+  string name = 2;
+  string dba = 3;
+  string url = 4;
+  string country = 5;
+  string state = 6;
+  bool listed = 7;
+  string registration_number = 8;
+  string status = 9;
+  string date_registered = 10;
+  string date_renewed = 11;
+  string date_inactive = 12;
+  string date_closed = 13;
+  string primary_purpose = 14;
+  string industry = 15;
+  string naics = 16;
+  string duns = 17;
+  string cage = 18;
+  bool political_donor = 19;
+  string no_of_employees = 20;
+  string description = 21;
+  string comment = 22;
+  string source = 23;
+  bool is_deleted = 24;
+  string deleted_at = 25;
+  string created_at = 26;
+  string updated_at = 27;
+  string id = 28;
+}
+
+enum Form{
+  PERSON = 0;
+}
+
+enum DropDownManu{
+  GENDER = 0;
+  SUFFIX = 1;
+}
+
+message UpdateEntityByIdRequest{
+  string id = 1;
+  EntityRequest entity = 2;
+}
+
+message EntityRequest{
+  string type = 1;
+  string category = 2;
+  string entity_name = 3;
+  string dba = 4;
+  string entity_url = 5;
+  string goal = 6;
+  bool listed = 7;
+  string structure = 8;
+  string registration_number = 9;
+  string parent_department = 10;
+  string political_leaning = 11;
+  string religion = 12;
+  string activity = 13;
+  int32 no_members = 14;
+  string country = 15;
+  string county = 16;
+  string state = 17;
+  string city = 18;
+  string status = 19;
+  string date_inactive = 20;
+  string date_closed = 21;
+  string date_registered = 22;
+  string date_renewed = 23;
+  string industry = 24;
+  string primary_purpose = 25;
+  string naics = 26;
+  string duns = 27;
+  string cage = 28;
+  bool political_donor = 29;
+  string description = 30;
+  string comment = 31;
+  string entity_source = 32;
+  int32 no_of_employee = 33;
+}
+
+
+message Entity {
+  string id = 1;
+  string type = 2;
+  string category = 3;
+  string entity_name = 4;
+  string dba = 5;
+  string entity_url = 6;
+  string goal = 7;
+  bool listed = 8;
+  string structure = 9;
+  string registration_number = 10;
+  string parent_department = 11;
+  string political_leaning = 12;
+  string religion = 13;
+  string activity = 14;
+  int32 no_members = 15;
+  string country = 16;
+  string county = 17;
+  string state = 18;
+  string city = 19;
+  string status = 20;
+  string date_inactive = 21;
+  string date_closed = 22;
+  string date_registered = 23;
+  string date_renewed = 24;
+  string industry = 25;
+  string primary_purpose = 26;
+  string naics = 27;
+  string duns = 28;
+  string cage = 29;
+  bool political_donor = 30;
+  string description = 31;
+  string comment = 32;
+  string entity_source = 33;
+  bool is_deleted = 34;
+  string deleted_at = 35;
+  string created_at = 36;
+  string updated_at = 37;
+  int32 no_of_employee = 38;
+}
+
+message EventRequest{
+  string type = 1;
+  string sub_type = 2;
+  string method = 3;
+  string malware = 4;
+  string nature_attack = 5;
+  string name = 6;
+  string datetime_start = 7;
+  string datetime_end = 8;
+  string start_time_of_day = 9;
+  string end_time_of_day = 10;
+  string target = 11;
+  string exploited_software = 12;
+  string software_version = 13;
+  string operating_system = 14;
+  string os_version = 15;
+  string vulnerability = 16;
+  string goal = 17;
+  float dollar_value_stolen = 18;
+  string weather = 19;
+  int32 no_fatalities = 20;
+  int32 no_injured = 21;
+  int32 no_arrests = 22;
+  int32 no_charges = 23;
+  float cash_value_found = 24;
+  string drugs_found = 25;
+  float drug_value = 26;
+  string weapons_found = 27;
+  string documents_found = 28;
+  string items_found = 29;
+  float value_damage = 30;
+  string narrative = 31;
+  string comment = 32;
+  string event_source = 33;
+  float weight_of_drugs = 34;
+  float assment_qty = 35;
+  float assment_weight = 36;
+  float assment_volumn = 37;
+  float assment_purity = 38;
+  float assment_value = 39;
+  string import_date = 40;
+  string export_date = 41;
+  string evnt_type = 42;
+  bool event_vehicle_search = 43;
+  string charged_with = 44;
+  string latitude = 45;
+  string longitude = 46;
+}
+message EntityResponse{
+  bool success = 1;
+  Entity data = 2;
+  string msg = 3;
+}
+
+message Event {
+  string id = 1;
+  string type = 2;
+  string sub_type = 3;
+  string method = 4;
+  string malware = 5;
+  string nature_attack = 6;
+  string name = 7;
+  string datetime_start = 8;
+  string datetime_end = 9;
+  string start_time_of_day = 10;
+  string end_time_of_day = 11;
+  string target = 12;
+  string exploited_software = 13;
+  string software_version = 14;
+  string operating_system = 15;
+  string os_version = 16;
+  string vulnerability = 17;
+  string goal = 18;
+  float dollar_value_stolen = 19;
+  string weather = 20;
+  int32 no_fatalities = 21;
+  int32 no_injured = 22;
+  int32 no_arrests = 23;
+  int32 no_charges = 24;
+  float cash_value_found = 25;
+  string drugs_found = 26;
+  float drug_value = 27;
+  string weapons_found = 28;
+  string documents_found = 29;
+  string items_found = 30;
+  float value_damage = 31;
+  string narrative = 32;
+  string comment = 33;
+  string event_source = 34;
+  bool is_deleted = 35;
+  string deleted_at = 36;
+  string created_at = 37;
+  string updated_at = 38;
+  float weight_of_drugs = 39;
+  float assment_qty = 40;
+  float assment_weight = 41;
+  float assment_volumn = 42;
+  float assment_purity = 43;
+  float assment_value = 44;
+  string import_date = 45;
+  string export_date = 46;
+  string evnt_type = 47;
+  bool event_vehicle_search = 48;
+  string charged_with = 49;
+  string latitude = 50;
+  string longitude = 51;
+}
+
+message EventResponse {
+  bool success = 1;
+  Event data = 2;
+  string msg = 3;
+}
+
+
+message UpdateEventByIdRequest {
+  string id = 1;
+  EventRequest event = 2;
+}
+
+message DeviceRequest{
+    string type = 1;
+    string sub_type = 2;
+    string imei = 3;
+    string imei2 = 4;
+    string manufacturer = 6;
+    string model = 7;
+    string model_no = 8;
+    string serial_no = 9;
+    string sim_type = 10;
+    string processor = 11;
+    string cpu_socket = 12;
+    string features = 13;
+    string lan_speed    = 14;
+    string layer = 15;
+    string video_card   = 16;
+    string drive = 17;
+    string operating_system  = 18;
+    string os_version   = 19;
+    string bios_efi_version = 20;
+    string build_no = 21;
+    string bands = 22;
+    string firmware = 23;
+    string no_bays = 24;
+    string speed = 25;
+    string memory_slot = 26;
+    string encryption = 27;
+    string vpn = 28;
+    string interface = 29;
+    string network_tech = 30;
+    string connection = 31;
+    string antenna = 32;
+    bool raid = 33;
+    string ports = 34;
+    int32 no_wan_ports = 35;
+    int32 no_lan_ports = 36;
+    string port_speed = 37;
+    string security = 38;
+    string docsis = 39;
+    bool dual_band = 40;
+    string form = 41;
+    string network_port = 42;
+    float memory = 43;
+    string memory_type = 44;
+    float storage = 45;
+    string wifi_standard = 46;
+    string chipset = 47;
+    string mac_address = 48;
+    string description = 49;
+    string comment = 50;
+    string source = 51;
+    string protocol = 52;
+    int32 no_of_ports = 53;
+    string management = 54;
+    string port_types = 55;
+    string standard = 56;
+    string longitude = 57;
+    string latitude = 58;
+    string add_from = 59;
+}
+
+message Device{
+  string type = 1;
+  string sub_type = 2;
+  string imei = 3;
+  string imei2 = 4;
+  string manufacturer = 6;
+  string model = 7;
+  string model_no = 8;
+  string serial_no = 9;
+  string sim_type = 10;
+  string processor = 11;
+  string cpu_socket = 12;
+  string features = 13;
+  string lan_speed = 14;
+  string layer = 15;
+  string video_card = 16;
+  string drive = 17;
+  string operating_system = 18;
+  string os_version = 19;
+  string bios_efi_version = 20;
+  string build_no = 21;
+  string bands = 22;
+  string firmware = 23;
+  string no_bays = 24;
+  string speed = 25;
+  string memory_slot = 26;
+  string encryption = 27;
+  string vpn = 28;
+  string interface = 29;
+  string network_tech = 30;
+  string connection = 31;
+  string antenna = 32;
+  bool raid = 33;
+  string ports = 34;
+  int32 no_wan_ports = 35;
+  int32 no_lan_ports = 36;
+  string port_speed = 37;
+  string security = 38;
+  string docsis = 39;
+  bool dual_band = 40;
+  string form = 41;
+  string network_port = 42;
+  float memory = 43;
+  string memory_type = 44;
+  float storage = 45;
+  string wifi_standard = 46;
+  string chipset = 47;
+  string mac_address = 48;
+  string description = 49;
+  string comment = 50;
+  string source = 51;
+  bool is_deleted = 52;
+  string created_at = 53;
+  string updated_at = 54;
+  string deleted_at = 55;
+  string id = 56;
+  string protocol = 57;
+  int32 no_of_ports = 58;
+  string management = 59;
+  string port_types = 60;
+  string standard = 61;
+  string add_from = 62;
+}
+
+
+message UpdateDeviceByIdRequest {
+  string id = 1;
+  DeviceRequest device = 2;
+}
+
+message ListCsvRecordResponse {
+  bool success = 1;
+  repeated CSVRecords data = 2;
+  string msg = 3;
+}
+
+message DeviceResponse {
+  string msg = 1;
+  Device data = 2;
+  bool success = 3;
+}
+
+message PersonResponse {
+  string msg = 1;
+  Person data = 2;
+  bool success = 3;
+}
+
+message Person {
+  string id = 1;
+  string name = 2;
+  string title = 3;
+  string rank = 4;
+  string gender = 5;
+  string first_name = 6;
+  string middle_name = 7;
+  string last_name = 8;
+  string suffix = 9;
+  string other_names = 10;
+  string maiden_name = 11;
+  bool fraudulent_identity = 12;
+  bool former_military = 13;
+  string date_of_birth = 14;
+  string date_of_death = 15;
+  string actual_missing = 16;
+  string found = 17;
+  string city_of_birth = 18;
+  string race = 19;
+  string visa_status = 20;
+  string nationality = 21;
+  string ethnicity = 22;
+  repeated string languages_spoken = 23;
+  string citizenship = 24;
+  string description = 25;
+  string description_date = 26;
+  int32 height_feet = 27;
+  int32 height_inch = 28;
+  string complexion = 29;
+  string hair = 30;
+  float weight = 31;
+  string weight_unit = 32;
+  string eye_color = 33;
+  string hair_color = 34;
+  string facial_feature = 35;
+  string facial_hair = 36;
+  string build = 37;
+  string other_comments = 38;
+  string tattoo_description = 39;
+  string tattoo_location = 40;
+  string scar_description = 41;
+  string scar_location = 42;
+  string mark_description = 43;
+  string mark_location = 44;
+  string piercing_description = 45;
+  string piercing_location = 46;
+  string other_distinguishing_features = 47;
+  string occupation = 48;
+  bool registered_to_vote = 49;
+  string political_leaning = 50;
+  string education = 51;
+  string ideology = 52;
+  string religion = 53;
+  string hobbies = 54;
+  string passport_number = 55;
+  string passport_nationality = 56;
+  string passport_issuing_authority = 57;
+  string passport_issued = 58;
+  string passport_expiry = 59;
+  string drivers_license_number = 60;
+  string drivers_license_address = 61;
+  string drivers_license_county = 62;
+  string drivers_license_state = 63;
+  string drivers_license_country = 64;
+  string drivers_license_type = 65;
+  string drivers_license_issuing_authority = 66;
+  string drivers_license_issued = 67;
+  string drivers_license_expiry = 68;
+  string id_card_number = 69;
+  string id_card_address = 70;
+  string id_card_county = 71;
+  string id_card_state = 72;
+  string id_card_country = 73;
+  string id_card_type = 74;
+  string id_card_issuing_authority = 75;
+  string id_card_issued = 76;
+  string id_card_expiry = 77;
+  string other_description = 78;
+  string comment = 79;
+  string source = 80;
+  bool is_deleted = 81;
+  string deleted_at = 82;
+  string created_at = 83;
+  string updated_at = 84;
+  string reported_missing = 85;
+  string stateOfBirth = 86;
+  string warning = 87;
+}
+
+message CreatePersonRequest{
+
+  string name = 1;
+  string title = 2;
+  string rank = 3;
+  string gender = 4;
+  string first_name = 5;
+  string middle_name = 6;
+  string last_name = 7;
+  string suffix = 8;
+  string other_names = 9;
+  string maiden_name = 10;
+  bool fraudulent_identity = 11;
+  bool former_military = 12;
+  string date_of_birth = 13;
+  string date_of_death = 14;
+  string actual_missing = 15;
+  string found = 16;
+  string city_of_birth = 17;
+  string race = 18;
+  string visa_status = 19;
+  string nationality = 20;
+  string ethnicity = 21;
+  repeated string languages_spoken = 22;
+  string citizenship = 23;
+  string description = 24;
+  string description_date = 25;
+  int32 height_feet = 26;
+  string complexion = 27;
+  string hair = 28;
+  float weight = 29;
+  string eye_color = 30;
+  string hair_color = 31;
+  string facial_feature = 32;
+  string facial_hair = 33;
+  string build = 34;
+  string other_comments = 35;
+  string tattoo_description = 36;
+  string tattoo_location = 37;
+  string scar_description = 38;
+  string scar_location = 39;
+  string mark_description = 40;
+  string mark_location = 41;
+  string piercing_description = 42;
+  string piercing_location = 43;
+  string other_distinguishing_features = 44;
+  string occupation = 45;
+  bool registered_to_vote = 46;
+  string political_leaning = 47;
+  string education = 48;
+  string ideology = 49;
+  string religion = 50;
+  string hobbies = 51;
+  string passport_number = 52;
+  string passport_nationality = 53;
+  string passport_issuing_authority = 54;
+  string passport_issued = 55;
+  string passport_expiry = 56;
+  string drivers_license_number = 57;
+  string drivers_license_address = 58;
+  string drivers_license_county = 59;
+  string drivers_license_state = 60;
+  string drivers_license_country = 61;
+  string drivers_license_type = 62;
+  string drivers_license_issuing_authority = 63;
+  string drivers_license_issued = 64;
+  string drivers_license_expiry = 65;
+  string id_card_number = 66;
+  string id_card_address = 67;
+  string id_card_county = 68;
+  string id_card_state = 69;
+  string id_card_country = 70;
+  string id_card_type = 71;
+  string id_card_issuing_authority = 72;
+  string id_card_issued = 73;
+  string id_card_expiry = 74;
+  string other_description = 75;
+  string comment = 76;
+  string source = 77;
+  string reported_missing = 78;
+  string stateOfBirth = 79;
+  int32 height_inch = 80;
+  string weight_unit = 81;
+  string warning = 82;
+
+}
+
+message UpdatePersonRequestById{
+  string id = 1;
+  CreatePersonRequest person = 2;
+}
+
+message GetPersonByIdRequest {
+  string id = 1;
+}
+
+message GetSubTypesRequest{
+  string parent_type = 1;
+}
+
+message GetSubTypesResponse{
+  repeated string sub_types = 1;
+}
+
+message GetDeviceDropdownsBySubTypeRequest{
+  string sub_type = 1;
+}
+
+message GetDeviceDropdownsBySubTypeResponse{
+  string sub_type = 1;
+  repeated string category = 2;
+  repeated string manufacturer = 3;
+  repeated string operating_system = 4;
+  repeated string model = 5;
+  repeated string dual_band = 6;
+  repeated string management = 7;
+  repeated string features = 8;
+  repeated string cpu = 9;
+  repeated string drive = 10;
+  repeated string antenna = 11;
+  repeated string network_tech = 12;
+  repeated string ports = 13;
+  repeated string standard = 14;
+  repeated string encryption = 15;
+  repeated string vpn = 16;
+  repeated string raid = 17;
+  string created_at = 18;
+}
+
+message GetPlaneWidgetCount{
+  int32 person_cnt = 1;
+  int32 vehicle_cnt = 2;
+  int32 item_cnt = 3;
+  int32 weapon_cnt = 4;
+  int32 software_cnt = 5;
+  int32 operation_cnt = 6;
+  int32 location_cnt = 7;
+  int32 firearm_cnt = 8;
+  int32 event_cnt = 9;
+  int32 entity_cnt = 10;
+  int32 device_cnt = 11;
+  int32 account_cnt = 12;
+}
+
+message SearchRequest{
+  string search_text = 1;
+}
+
+message Search{
+  string id = 1;
+  string object = 2;
+  string object_id = 3;
+  string searchable_data = 4;
+  string key = 5;
+  string label_text = 6;
+  string add_to_network = 7;
+  string add_to_map = 8;
+  string network_dx = 9;
+  string network_dy = 10;
+  string object_type = 11;
+  string object_sub_type = 12;
+  string object_category = 13;
+}
+message ObjectCount{
+  string key = 1;
+  int32 val = 2;
+}
+message AllSearchResponse{
+  bool success = 1;
+  repeated Search data = 2;
+  repeated ObjectCount object_cnt = 3;
+  string msg = 4;
+  repeated string allowed_map_object_list = 5;
+}
+
+message SearchResult{
+  string object = 1;
+  string type = 2;
+  string sub_type = 3;
+  string category = 4;
+  string id = 5;
+  string matched_field = 6;
+  string matched_with = 7;
+}
+
+message SearchResponse{
+  repeated SearchResult search_result = 1;
+}
+
+message Vehicle {
+  string id = 1;
+  string type = 2;
+  string sub_type = 3;
+  string category = 4;
+  int32 year = 5;
+  string make = 6;
+  string model = 7;
+  string trim = 8;
+  string color = 9;
+  string vin = 10;
+  bool gps = 11;
+  string license_plate = 12;
+  string registration_no = 13;
+  string state_registered = 14;
+  string country_registered = 15;
+  string date_last_sale = 16;
+  int32 sale_price = 17;
+  int32 value = 18;
+  int32 encumbrance = 19;
+  int32 equity = 20;
+  string description = 21;
+  string comment = 22;
+  string vehicle_source = 23;
+  bool is_deleted = 24;
+  string deleted_at = 25;
+  string created_at = 26;
+  string updated_at = 27;
+  bool vehicle_search = 28;
+}
+
+message VehicleRequest{
+
+  string type = 1;
+  string sub_type = 2;
+  string category = 3;
+  int32 year = 4;
+  string make = 5;
+  string model = 6;
+  string trim = 7;
+  string color = 8;
+  string vin = 9;
+  bool gps = 10;
+  string license_plate = 11;
+  string registration_no = 12;
+  string state_registered = 13;
+  string country_registered = 14;
+  string date_last_sale = 15;
+  int32 sale_price = 16;
+  int32 value = 17;
+  int32 encumbrance = 18;
+  int32 equity = 19;
+  string description = 20;
+  string comment = 21;
+  string vehicle_source = 22;
+  bool vehicle_search = 23;
+}
+
+message UpdateVehicleByIdRequest{
+  string id = 1;
+  VehicleRequest vehicle = 2;
+}
+
+message VehicleResponse{
+  bool success = 1;
+  Vehicle data = 2;
+  string msg = 3;
+}
+
+message Account {
+    string id = 1;
+    string type = 2;
+    string sub_type = 3;
+    string company_name = 4;
+    float annual_premium = 5;
+    string policy_no = 6;
+    string underwriter = 7;
+    string bank_name = 8;
+    string client_number = 9;
+    string carrier = 10;
+    string provider = 11;
+    string acc_number = 12;
+    string acc_name = 13;
+    string acc_type = 14;
+    float balance = 15;
+    string as_at_date = 16;
+    float initial_loan = 17;
+    string crypto_address = 18;
+    string cryptocurrency = 19;
+    float crypto_amount = 20;
+    float usd_value = 21;
+    string exchange = 22;
+    string wallet = 23;
+    string imsi = 24;
+    string msisdn = 25;
+    int32 sim = 26;
+    string username = 27;
+    string password = 28;
+    bool mfa = 29;
+    bool joint_acc = 30;
+    string date_open = 31;
+    string date_close = 32;
+    string first_seen = 33;
+    string last_seen = 34;
+    string account_description = 35;
+    string account_comment = 36;
+    string account_source = 37;
+    bool is_deleted = 38;
+    string deleted_at = 39;
+    string created_at = 40;
+    string updated_at = 41;
+    string account_email = 42;
+    string app_name = 43;
+    string longitude = 44;
+    string latitude = 45;
+    string add_from = 46;
+  }
+
+  message AccountRequest {
+    string type = 1;
+    string sub_type = 2;
+    string company_name = 3;
+    float annual_premium = 4;
+    string policy_no = 5;
+    string underwriter = 6;
+    string bank_name = 7;
+    string client_number = 8;
+    string carrier = 9;
+    string provider = 10;
+    string acc_number = 11;
+    string acc_name = 12;
+    string acc_type = 13;
+    float balance = 14;
+    string as_at_date = 15;
+    float initial_loan = 16;
+    string crypto_address = 17;
+    string cryptocurrency = 18;
+    float crypto_amount = 19;
+    float usd_value = 20;
+    string exchange = 21;
+    string wallet = 22;
+    string imsi = 23;
+    string msisdn = 24;
+    int32 sim = 25;
+    string username = 26;
+    string password = 27;
+    bool mfa = 28;
+    bool joint_acc = 29;
+    string date_open = 30;
+    string date_close = 31;
+    string first_seen = 32;
+    string last_seen = 33;
+    string account_description = 34;
+    string account_comment = 35;
+    string account_source = 36;
+    string account_email = 37;
+    string app_name = 38;
+    string longitude = 39;
+    string latitude = 40;
+    string add_from = 41;
+  }
+
+message UpdateAccountByIdRequest {
+  string id = 1;
+  AccountRequest request = 2;
+}
+
+message AccountResponse {
+  bool success = 1;
+  Account data = 2;
+  string msg = 3;
+}
+
+// message UsedIn {
+//     string used_id = 1;
+// }
+// message FirearmSubtype {
+//     string sub_type = 1;
+// }
+// message FirearmIntendedUse {
+//     string intended_use = 1;
+// }
+// message FirearmLoading {
+//     string loading = 1;
+// }
+// message FirearmManufacture {
+//     string manufacture = 1;
+// }
+
+message ItemDropDowns{
+    repeated string years = 1;
+  }
+
+message ItemDropDownResponse{
+    bool success = 1;
+    ItemDropDowns data = 2;
+    string msg = 3;
+  }
+
+  message WeaponDropDowns{
+    repeated string years = 1;
+  }
+
+message WeaponDropDownResponse{
+    bool success = 1;
+    WeaponDropDowns data = 2;
+    string msg = 3;
+  }
+
+message FirearmDropDowns{
+  repeated string used_id = 1;
+  repeated string sub_type = 2;
+  repeated string intended_use = 3;
+  repeated string loading = 4;
+  repeated string manufacture = 5;
+  repeated string years = 6;
+}
+
+message FirearmDropDownResponse{
+  bool success = 1;
+  FirearmDropDowns data = 2;
+  string msg = 3;
+}
+
+message PersonDropDown{
+  repeated string rank = 1;
+  repeated string title = 2;
+  repeated string gender = 3;
+  repeated string suffix = 4;
+  repeated string nationality = 5;
+  repeated string citizenship = 6;
+  repeated string visa_status = 7;
+  repeated string state_of_birth = 8;
+  repeated string race = 9;
+  repeated string ethnicity = 10;
+  repeated string city_of_birth = 11;
+  repeated string languages_spoken = 12;
+  repeated string complexion = 13;
+  repeated string hairs = 14;
+  repeated string eye_color = 15;
+  repeated string hair_color = 16;
+  repeated string facial_feature = 17;
+  repeated string facial_hair = 18;
+  repeated string build = 19;
+  repeated string tatto_location = 20;
+  repeated string scar_location = 21;
+  repeated string mark_location = 22;
+  repeated string piercing_location = 23;
+  repeated string political_learning = 24;
+  repeated string education = 25;
+  repeated string ideology = 26;
+  repeated string religion = 27;
+  repeated string state = 28;
+  repeated string country = 29;
+  repeated int32 feet = 30;
+  repeated int32 inch = 31;
+  repeated string weight_unit = 32;
+}
+
+message PersonDropDownResponse{
+  bool success = 1;
+  PersonDropDown data = 2;
+  string msg = 3;
+}
+
+message EntityDropDown{
+  string type = 1;
+  repeated string name = 2;
+  repeated string structure = 3;
+  repeated string country_incorporated = 4;
+  repeated string state_incorporated = 5;
+  repeated string status = 6;
+  repeated string naics = 7;
+  repeated string category = 8;
+  repeated string country = 9;
+  repeated string state = 10;
+  repeated string activity = 11;
+  string parent_type = 12;
+  repeated string sub_type = 13;
+}
+message EntityTypeDropDown{
+  repeated string type = 1;
+}
+
+message EntityDropDownResponse{
+  bool success = 1;
+  repeated EntityDropDown data = 2;
+  EntityTypeDropDown eType = 3;
+  string msg = 4;
+}
+
+message VehicleDropDown{
+  string type = 1;
+  string sub_type = 2;
+  repeated string category = 3;
+  repeated string color = 4;
+  repeated string state_registered = 5;
+  repeated string country_registered = 6;
+  repeated ProducerDropDown producer = 7;
+  repeated string make = 8;
+  repeated string years = 9;
+}
+
+message ProducerDropDown{
+  string make = 1;
+  repeated string model = 2;
+}
+
+message VehicleDropDownResponse{
+  bool success = 1;
+  repeated VehicleDropDown data = 2;
+  repeated string type = 3;
+  repeated string subtype = 4;
+  string msg = 5;
+}
+
+message LocationDropDown{
+  repeated string use_type = 1;
+  repeated string year_built = 2;
+}
+message LocationDropDownResponse{
+  bool success = 1;
+  LocationDropDown data = 2;
+  string msg = 3;
+}
+
+message EventDropDown{
+  string type = 1;
+  repeated string sub_type = 2;
+  repeated string nature_attack = 3;
+  repeated string time_of_day = 4;
+  repeated string drugs_found = 5;
+  repeated string method = 6;
+  repeated string malware = 7;
+  repeated string target = 8;
+  repeated string operating_system = 9;
+  repeated string goal = 10;
+  repeated string charged_with = 11;
+}
+
+message EventDropDownResponse{
+  bool success = 1;
+  repeated EventDropDown data = 2;
+  repeated string event_type = 3;
+  string msg = 4;
+}
+
+message SoftwareDropDown{
+  string software_type = 1;
+  repeated string sub_type = 2;
+  repeated string operating_system = 3;
+  repeated string target_os = 4;
+}
+message SoftwareDropDownResponse{
+  bool success = 1;
+  repeated SoftwareDropDown data = 2;
+  repeated string software_type = 3;
+  string msg = 4;
+}
+
+message AccountDropDown{
+  string type = 1;
+  repeated string carrier = 2;
+  repeated string acc_provider = 3;
+  repeated string bank_name = 4;
+  repeated string company_name = 5;
+  repeated string acc_sub_type = 6;
+  repeated string underwriter = 7;
+  repeated string cryptocurrency = 8;
+  repeated string exchange = 9;
+  repeated string wallet = 10;
+  repeated string joint_acc = 11;
+  repeated string app_name = 12;
+  repeated string acc_type = 13;
+  repeated string acc_mfa = 14;
+}
+
+message AccountDropDownResponse{
+  bool success = 1;
+  repeated AccountDropDown data = 2;
+  repeated string account_type = 3;
+  string msg = 4;
+}
+
+message AllPersonsResponse{
+  bool success = 1;
+  repeated Person data = 2;
+  string msg = 3;
+}
+
+message OperationDropDown{
+  string type = 1;
+  repeated string squad_unit = 2;
+  repeated string status = 3;
+  repeated string category = 4;
+}
+
+message OperationDropDownResponse{
+  bool success = 1;
+  repeated OperationDropDown data = 2;
+  repeated string operation_type = 3;
+  string msg = 4;
+}
+message DeviceDropDown{
+
+  string type = 1;
+  repeated string sub_type = 2;
+  repeated string model = 3;
+  repeated string manufacturer = 4;
+  repeated string operating_system = 5;
+  repeated string management = 6;
+  repeated string cpu = 7;
+  repeated string encryption = 8;
+  repeated string vpn = 9;
+  repeated string standard = 10;
+  repeated string raid = 11;
+  repeated string ports = 12;
+  repeated string antenna = 13;
+  repeated string drive = 14;
+  repeated string network_tech = 15;
+  repeated string features = 16;
+  repeated string sim_type = 17;
+
+}
+message DeviceDropDownResponse{
+  bool success = 1;
+  repeated DeviceDropDown data = 2;
+  repeated string device_type = 3;
+  string msg = 4;
+}
+message OBJTarget{
+  string edge_id = 1;
+  string target_object = 2;
+  string target_object_id = 3;
+  string relation_with_target = 4;
+  string parent_id = 5;
+  bool collapsed = 6;
+  string target_node_id = 7;
+  bool is_deleted = 8;
+  string deleted_at = 9;
+  string created_at = 10;
+  string updated_at = 11;
+  string created_by = 12;
+  string updated_by = 13;
+  string deleted_by = 14;
+}
+message Network{
+  string node_id = 1;
+  string object = 2;
+  string object_id = 3;
+  string object_display_name = 4;
+  repeated OBJTarget object_target = 5;
+  string organization_id = 6;
+  string dX = 7;
+  string dY = 8;
+  bool is_deleted = 9;
+  string deleted_at = 10;
+  string created_at = 11;
+  string updated_at = 12;
+  string network_collapsed = 13;
+  string network_object_type = 14;
+  string network_object_sub_type = 15;
+  string object_category = 16;
+}
+
+message NetworkRequest{
+  string object = 1;
+  string object_id = 2;
+  string object_display_name = 3;
+  string organization_id = 5;
+  string dX = 6;
+  string dY = 7;
+}
+
+message UpdateNetworkRequest{
+  string source_node_id = 1;
+  string target_object = 2;
+  string target_object_id = 3;
+  string relation_with_target = 4;
+  string parent_node_id = 5;
+  bool collapsed = 6;
+  string target_node_id = 7;
+}
+
+message NetworkResponse{
+  bool success = 1;
+  Network data = 2;
+  string msg = 3;
+}
+
+message AllNetworkResponse{
+  bool success = 1;
+  repeated Network data = 2;
+  string msg = 3;
+}
+
+message ToDoTask {
+    string id = 1;
+    string status = 2;
+    string todo_msg = 3;
+    string created_at = 4;
+    string updated_at = 5;
+    string deleted_at = 6;
+    bool is_deleted = 7;
+}
+
+message ToDoTaskRequest{
+    string todo_msg = 1;
+}
+
+message UpdateTodoByIdRequest{
+    repeated string id = 1;
+    string status = 2;
+}
+
+message DeleteTodoByIdRequest{
+    repeated string id = 1;
+    string comment = 2;
+}
+
+message AllToDoTaskRequest{
+    string status = 1;
+}
+message ToDoCounts{
+    string pending_counts = 1;
+    string completed_counts = 2;
+}
+message AllToDoTaskResponse{
+    bool success = 1;
+    repeated ToDoTask data = 2;
+    string msg = 3;
+    ToDoCounts todo_cnt = 4;
+
+}
+
+message ToDoTaskResponse {
+    string msg = 1;
+    ToDoTask data = 2;
+    bool success = 3;
+}
+
+message TargetDropDown{
+  string id = 1;
+  string object = 2;
+  string object_id = 3;
+  string object_display_name = 4;
+}
+message ReturnRelationEdgeDropDownRequest{
+  string obj = 1;
+  string id = 2;
+}
+message UpdateRelationEdgesRequset{
+  string edge_id = 1;
+  string relation_of_edge = 2;
+}
+message RelationEdges{
+  string key = 1;
+  repeated string relation_edge = 2;
+}
+
+message NetworkEdges{
+  repeated RelationEdges relation_edges = 1;
+  repeated TargetDropDown target_dropdown = 2;
+}
+
+message ReturnRelationEdgeDropDownsResponse{
+  bool success = 1;
+  NetworkEdges data = 2;
+  string msg = 3;
+}
+
+message UpdateNodePositionRequest{
+  repeated NodePositionRequest req = 1;
+}
+
+message NodePositionRequest{
+  string node_id = 1;
+  string dx = 2;
+  string dy = 3;
+}
+
+message NodeCollaps{
+  string node_id = 1;
+  string collaps = 2;
+}
+message NodeCollapsRequest{
+  repeated NodeCollaps node = 1;
+}
+
+message NodeCollapsResponse{
+  bool success = 1;
+  Network data = 2;
+  string msg = 3;
+
+}
+
+message AppData{
+  string version = 1;
+  string app_url = 2;
+}
+message VersionResponse{
+  bool success = 1;
+  AppData data = 2;
+  string msg = 3;
+
+}
+
+message GetPlaneWidgetResponse{
+    bool success = 1;
+    GetPlaneWidgetCount data = 2;
+    string msg = 3;
+}
+
+message ObjectLists{
+    string object_type = 1;
+    string object_id = 2;
+    string type = 3;
+    string sub_type = 4;
+    string category = 5;
+    string object_identifier = 6;
+    string object_created_on = 7;
+    string object_created_by = 8;
+    string object_modified_on = 9;
+    string object_modified_by = 10;
+    string object_added_to_network = 11;
+    string object_added_to_map = 12;
+}
+
+message ObjectListResponse {
+    bool success = 1;
+    repeated ObjectLists data = 2;
+    string msg = 3;
+}
+
+message PlaneWidgetObjectListRequest{
+  string search = 1;
+  string created_at = 2;
+  string modified_at = 3;
+  string filter_by = 4;
+}
+
+message UploadCSVRequest {
+    bytes content = 1;
+}
+
+message UploadCSVResponse {
+    bool success = 1;
+    string msg = 2;
+    CSVRecords data = 3;
+}
+
+message CDRRequiredDetailsesponse {
+    bool success = 1;
+    CDRData data = 2;
+    string msg = 3;
+}
+
+message CDRData {
+    string cdr_template_file_url = 1;
+    CDRRegex regex = 2;
+}
+
+message CDRRegex{
+    string from_MSISDN = 1;
+    string from_IMSI = 2;
+    string from_IMEI = 3;
+    string from_LAT = 4;
+    string from_LONG = 5;
+    string DATE_TIME = 6;
+    string duration = 7;
+    string to_MSISDN = 8;
+}
+
+message CSVRecords {
+    string id = 1;
+    string source_msisdn = 2;
+    string source_imsi = 3;
+    string source_imei = 4;
+    GeoLocation source_location = 5;
+    string destination_msisdn = 6;
+    string datetime = 7;
+    int64 duration = 8;
+    string imported_on = 9;
+    string imported_By = 10;
+}
+message GeoLocation {
+    string type = 1;
+    repeated float coordinates = 2;
+}
+
+message AddToMapRecords {
+    string id = 1;
+    string source_msisdn = 2;
+    string source_imsi = 3;
+    string source_imei = 4;
+    GeoLocation source_location = 5;
+    string destination_msisdn = 6;
+    string datetime = 7;
+    int64 duration = 8;
+    string imported_on = 9;
+    string imported_By = 10;
+    string unique_identifier = 11;
+}
+
+message AddToMapRequest {
+    string value = 1;
+    string object_name = 2;
+}
+
+message AddToMapResponse {
+    bool success = 1;
+    repeated AddToMapRecords data = 2;
+    string msg = 3;
+}
+
+message MapRecords {
+    string id = 1;
+    string source_msisdn = 2;
+    string source_imsi = 3;
+    string source_imei = 4;
+    GeoLocation source_location = 5;
+    string destination_msisdn = 6;
+    string datetime = 7;
+    int64 duration = 8;
+    string created_on = 9;
+    string created_By = 10;
+    string unique_identifier = 11;
+    string object_id = 12;
+    string object_name = 13;
+    string object_type = 14;
+    string object_sub_type = 15;
+}
+
+message ObjectMapJourneyRecords {
+    string id = 1;
+    string source_msisdn = 2;
+    string source_imsi = 3;
+    string source_imei = 4;
+    repeated GeoLocation source_location = 5;
+    string destination_msisdn = 6;
+    string datetime = 7;
+    int64 duration = 8;
+    string created_on = 9;
+    string created_By = 10;
+    string unique_identifier = 11;
+    string object_id = 12;
+    string object_name = 13;
+    string object_type = 14;
+    string object_sub_type = 15;
+}
+
+message MapResponse {
+    bool success = 1;
+    repeated MapRecords data = 2;
+    string msg = 3;
+}
+
+message ObjectMapJourneyResponse {
+    bool success = 1;
+    repeated ObjectMapJourneyRecords data = 2;
+    string msg = 3;
+}
+
+message MapObjectsListing{
+    string object_id = 1;
+    string object_name = 2;
+    string unique_identifier = 3;
+}
+message MapObjectsListingResponse {
+    bool success = 1;
+    repeated MapObjectsListing data = 2;
+    string msg = 3;
+}
+
+message ApplyFiltersOnMapRequest{
+    string object_name = 1;
+    string date_from = 2;
+    string date_to = 3;
+    string object_id = 4;
+}
+
+message NotebookRequest {
+    bytes value = 1;
+}
+
+message NotebookResponse {
+    bool success = 1;
+    bytes data = 2;
+    string msg = 3;
+}
+

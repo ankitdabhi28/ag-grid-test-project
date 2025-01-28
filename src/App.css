@@ -1,219 +1,150 @@
-.ag-style {
-  transition: 0.3s !important;
+/* General container margin */
+.container {
+  /* margin: 10px 10px; */
+  height: 100vh;
 }
 
-.ag-style:hover {
-  color: #3ba69a !important;
-}
-
-.list-feedback-msg .badge.badge-up {
-  top: 0px;
-}
-
-.badge.badge-up.my-project-table-icon {
-  top: -7px;
-}
-
-.text-wrap-review-link a {
-  max-width: 150px !important;
-  word-wrap: break-word;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-}
-
-.ag-cell-editor {
-  display: flex;
-  align-items: center;
-}
-
-.break-word-class {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  word-break: break-all;
-  word-wrap: break-word;
-  -webkit-line-clamp: 2;
-}
-
-.ag-ltr .ag-cell-focus:not(.ag-cell-range-selected):focus-within,
-[dir] .ag-ltr .ag-context-menu-open .ag-cell-focus:not(.ag-cell-range-selected),
-[dir] .ag-ltr .ag-full-width-row.ag-row-focus:focus .ag-cell-wrapper.ag-row-group,
-[dir] .ag-ltr .ag-cell-range-single-cell,
-[dir] .ag-ltr .ag-cell-range-single-cell.ag-cell-range-handle,
-[dir] .ag-rtl .ag-cell-focus:not(.ag-cell-range-selected):focus-within,
-[dir] .ag-rtl .ag-context-menu-open .ag-cell-focus:not(.ag-cell-range-selected),
-[dir] .ag-rtl .ag-full-width-row.ag-row-focus:focus .ag-cell-wrapper.ag-row-group,
-[dir] .ag-rtl .ag-cell-range-single-cell,
-[dir] .ag-rtl .ag-cell-range-single-cell.ag-cell-range-handle {
-  border: 1px solid transparent !important;
-}
-
-.ag-header.ag-header-allow-overflow .ag-header-row {
-  text-transform: uppercase;
-}
-
-.ag-date-picker {
-  height: 50px !important;
-}
-
-.custom-loader-ag .ag-overlay-loading-wrapper {
-  background-color: #283046 !important;
-}
-
-.custom-loader-ag .ag-overlay-loading-wrapper .ag-overlay-loading-center {
-  box-shadow: none !important;
-  background: transparent !important;
-  border: none !important;
-}
-
-.custom-ag-grouping .admin-badge {
-  top: 3px !important;
-  left: 16px !important;
-  min-width: unset;
-  min-height: unset;
-  padding: 6px !important;
-}
-
-.custom-ag-grouping .ag-watermark {
-  display: none;
-}
-
-.custom-ag-grouping .ag-watermark .ag-opacity-zero::after {
-  content: none;
-  display: none;
-}
-
-.custom-ag-grouping .ag-watermark .ag-opacity-zero::before {
-  content: none;
-  display: none;
-}
-
-.custom-ag-grouping .ag-header {
-  background-color: #343d55;
-}
-
-.custom-ag-grouping .ag-root-wrapper {
-  border: none !important;
-}
-
-.custom-ag-grouping .ag-theme-quartz-dark {
-  --ag-background-color: #0b1e38;
-  --ag-selected-row-background-color: #ebeef411 !important;
-}
-
-.custom-ag-grouping .ag-theme-quartz-dark .ag-checkbox-input-wrapper.ag-checked::after {
-  color: #3ba69a !important;
-}
-
-.custom-ag-grouping .hidden-checkbox .ag-header-cell .ag-checkbox-input-wrapper {
-  visibility: hidden;
-}
-
-.ag-theme-quartz .ag-menu,
-.ag-theme-quartz-dark .ag-menu,
-.ag-theme-quartz-auto-dark .ag-menu {
-  background-color: #283046 !important;
-  color: color-mix(in srgb, transparent, var(--ag-foreground-color) 95%);
-}
-
-.skeleton-loader {
-  position: relative;
-  background-color: #f8f8f824;
-  width: 100%;
-  height: 100%;
-  min-width: 50px;
-  min-height: 20px;
-  overflow: hidden;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.11);
-  border-radius: 0.428rem;
-  margin-bottom: 10px;
-}
-
-.skeleton-loader::after {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-  animation: loading 1.5s infinite;
-}
-
-.custom-accordion {
-  overflow: auto;
-}
-
-.custom-accordion .accordion-button::after {
-  content: none;
-}
-
-.custom-accordion .accordion {
-  position: relative;
-  z-index: 1;
-}
-
-.custom-accordion .accordion .custom-accordion-header {
+/* CKEditor top toolbar styles */
+.ck.ck-editor__top {
+  order: 2;
   position: sticky;
-  top: 0;
-  z-index: 99;
+  bottom: 0; /* Changed from 2 to 0 */
 }
 
-.custom-accordion .accordion .accordion-item {
-  background: #0b1e38 !important;
-  border-left: 6px solid;
-  border-radius: 6px !important;
-  border-bottom: none;
+/* CKEditor toolbar styles */
+.ck.ck-editor__top .ck-sticky-panel .ck-sticky-panel__content .ck-toolbar {
+  background: #f2f3f3;
+  border: 2px solid transparent; /* Added solid for border */
 }
 
-.custom-accordion .accordion .accordion-button {
-  background: #0b1e38 !important;
+/* CKEditor sticky panel content border */
+.ck.ck-editor__top .ck-sticky-panel .ck-sticky-panel__content {
+  border: 1px solid transparent; /* Added solid for border */
 }
 
-.custom-accordion .accordion-item {
+/* Editor focus styles */
+.ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable) {
+  box-shadow: none;
+  border-color: #ccced1;
+}
+
+/* Editor background color on focus */
+.ck.ck-editor__main > .ck-editor__editable .ck-focused {
+  background-color: #ccced1;
+}
+
+/* Toolbar item styles */
+.ck.ck-toolbar > .ck-toolbar__items > *:not(.ck-toolbar__line-break),
+.ck.ck-toolbar > .ck.ck-toolbar__grouped-dropdown {
+  background-color: #fff;
+}
+
+/* List item button active state */
+.ck.ck-list__item > .ck-button.ck-on {
+  background-color: #45a17a;
+  border: 0;
+}
+
+.ck.ck-list__item > .ck-button.ck-on:hover:not(.ck-disabled) {
+  background-color: #45a17a;
+  border: 0;
+}
+
+/* Button active state color */
+.ck.ck-button.ck-on,
+a.ck.ck-button.ck-on {
+  color: #45a17a;
+}
+
+/* Editor main styles */
+.ck-editor__main {
+  overflow-y: hidden;
+  height: 100%;
+}
+
+/* Editor main and editable styles */
+.ck.ck-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Find and replace panel styles */
+.ck.ck-balloon-panel .ck-find-and-replace {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.ck.ck-balloon-panel .ck-find-and-replace__title {
+  font-size: 18px;
+  color: #333;
+}
+
+.ck.ck-balloon-panel .ck-find-and-replace__form {
   margin-top: 10px;
 }
 
-.custom-accordion .accordion-sub-header {
+.ck.ck-balloon-panel .ck-find-and-replace__actions {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.custom-accordion .accordion-sub-header .number-project {
-  color: #3ba69a;
-  margin-left: 8px;
+/* Inline editable styles */
+.ck-editor__editable_inline {
+  border: 0;
 }
 
-.custom-accordion .main-project-table-accordion-body .custom-project-table .table-head {
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused),
+.ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable) {
+  border-color: transparent;
+  height: 100%;
+}
+
+/* Toolbar container margins */
+.top-toolbar-container {
+  margin-bottom: 20px;
+}
+
+.bottom-toolbar-container {
+  margin-top: 20px;
+}
+
+/* Find and replace form styles */
+.ck.ck-find-and-replace__form {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.ck .ck-form__header__label {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Find and replace button styles */
+.ck.ck-find-and-replace__button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.ck.ck-find-and-replace__button:hover {
+  background-color: #0056b3;
+}
+
+/* Hide CKEditor powered by logo */
+.ck .ck-powered-by {
+  display: none;
+}
+
+/* Fix sticky panel styles */
+.ck.ck-sticky-panel .ck-sticky-panel__content_sticky {
+  bottom: 0;
   position: sticky;
-  top: 55px;
-  z-index: 99;
-}
-
-.custom-accordion .dark-layout .accordion-button:before {
-  /* background-image: url(../images/svg/accordion-botton.svg); */
-}
-
-.custom-accordion .accordion-button::before {
-  margin-right: 0px;
-}
-
-.custom-accordion .accordion-button::before {
-  /* background-image: url(../images/svg/accordion-botton.svg); */
-  background-repeat: no-repeat;
-  background-size: 1rem;
-}
-
-.custom-accordion .accordion-button::before {
-  flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
-  transition: transform 0.2s ease-in-out;
-}
-
-.custom-accordion .accordion-button:not(.collapsed)::before {
-  transform: rotate(-180deg);
 }
