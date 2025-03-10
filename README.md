@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Pixally CRM Calendar Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This is a React-based calendar application using FullCalendar for date management and selection.
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+- Node.js (version 18 or 20)
+- Yarn package manager
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Custom Date Handling Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application includes three custom date handling functions:
 
-### `npm test`
+### 1. Date Separation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`separateDates()` breaks down multi-day date ranges into individual daily events.
 
-### `npm run build`
+- Input: `[{start: "2025-03-10", end: "2025-03-12"}]`
+- Output: Daily date ranges for each day in the selection
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Duplicate Date Removal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`removeDuplicates()` eliminates duplicate date ranges, ensuring unique date selections.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Date Gap Validation
 
-### `npm run eject`
+`isGapWithinLimit()` checks if selected dates are within a 0-1 day range.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Setup and Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Install Dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+yarn install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Start Development Server
 
-## Learn More
+```bash
+yarn run start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Interactive calendar with date selection
+- Event creation and management
+- Weekend toggle
+- Responsive design
 
-### Code Splitting
+## Technologies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React
+- Redux
+- FullCalendar
+- Day.js
+- UUID
 
-### Analyzing the Bundle Size
+## Usage Tips
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Click and drag to select dates
+- Click events to unselect dates
+- Use sidebar to manage selections
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Add your license information here]
